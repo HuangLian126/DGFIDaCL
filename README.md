@@ -1,34 +1,20 @@
-
-
-Our code is based on  [https://github.com/facebookresearch/maskrcnn-benchmark](https://github.com/facebookresearch/maskrcnn-benchmark) and developed with Python 3.6.5 & PyTorch 1.1.0.
+Our code is based on  [https://github.com/facebookresearch/maskrcnn-benchmark](https://github.com/facebookresearch/maskrcnn-benchmark) and developed with Python 3.7 & PyTorch 1.1.0.
  
 
-<div align=center>
-<img src="https://github.com/jiaxi-wu/MPSR/blob/master/tools/fewshot_exp/MPSR_arch.jpg" width="600">
-</div>
-
 ## Installation
-Check INSTALL.md for installation instructions. Since maskrcnn-benchmark has been deprecated, please follow these instructions carefully (e.g. version of Python packages).
+Check INSTALL.md for installation instructions.
 
 ## Prepare datasets
 
 ### Prepare original Pascal VOC & MS COCO datasets
-First, you need to download the VOC & COCO datasets.
-We recommend to symlink the path of the datasets to `datasets/` as follows
-
-We use `minival` and `valminusminival` sets from [Detectron](https://github.com/facebookresearch/Detectron/blob/master/detectron/datasets/data/README.md#coco-minival-annotations) ([filelink](https://dl.fbaipublicfiles.com/detectron/coco/coco_annotations_minival.tgz)).
-
+First, you need to download the VOC datasets.
+Then, put VOC datasets into file folder "datasets".
 ```bash
-# symlink the coco dataset
-cd ~/github/maskrcnn-benchmark
-mkdir -p datasets/coco
-ln -s /path_to_coco_dataset/annotations datasets/coco/annotations
-ln -s /path_to_coco_dataset/train2014 datasets/coco/train2014
-ln -s /path_to_coco_dataset/test2014 datasets/coco/test2014
-ln -s /path_to_coco_dataset/val2014 datasets/coco/val2014
-
-# for pascal voc dataset:
-ln -s /path_to_VOCdevkit_dir datasets/voc
+tools/fewshot_exp/
+├── train_voc_base.sh
+├── train_voc_standard.sh
+├── train_coco_base.sh
+└── train_coco_standard.sh
 ```
 
 ### Prepare base and few-shot datasets
