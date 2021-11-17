@@ -6,11 +6,12 @@ Check INSTALL.md for installation instructions.
 
 ## Prepare datasets
 
-### Prepare original Pascal VOC & MS COCO datasets
+### Prepare original Pascal VOC datasets
 First, you need to download the VOC datasets.
 Then, put VOC datasets into file folder "datasets".
+
 ```bash
-tools/fewshot_exp/
+datasets/voc/VOC2007
 ├── train_voc_base.sh
 ├── train_voc_standard.sh
 ├── train_coco_base.sh
@@ -30,7 +31,7 @@ This will also generate the datasets on base classes for base training.
 They will crop objects and store them (e.g. `datasets/voc/VOC2007/Crops_standard`) before training.
 You may need to change GPU device which is `export CUDA_VISIBLE_DEVICES=0,1` by default.
 ```bash
-tools/fewshot_exp/
+datasets/voc/
 ├── train_voc_base.sh
 ├── train_voc_standard.sh
 ├── train_coco_base.sh
