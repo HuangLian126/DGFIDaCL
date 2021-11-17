@@ -6,7 +6,7 @@ Check INSTALL.md for installation instructions.
 
 ## Prepare datasets
 
-### Prepare original Pascal VOC datasets
+### Prepare Pascal VOC datasets
 First, you need to download the VOC datasets.
 Then, put VOC datasets into file folder "datasets".
 
@@ -34,12 +34,7 @@ datasets/voc/VOC2007
 ```
 
 ### Prepare base and few-shot datasets
-For a fair comparison, we use the few-shot data splits from [Few-shot Object Detection via Feature Reweighting](https://github.com/bingykang/Fewshot_Detection) as a standard evaluation.
-To download their data splits and transfer it into VOC/COCO style, you need to run this script:
-```bash
-bash tools/fewshot_exp/datasets/init_fs_dataset_standard.sh
-```
-This will also generate the datasets on base classes for base training.
+We upload the few-shot data splits on ImageSets:
 
 ## Training and Evaluation
 4 scripts are used for full splits experiments and you can modify them later. 
@@ -84,31 +79,3 @@ python tools/fewshot_exp/cal_novel_voc.py fs_exp/voc_standard_results
 
 3. For more general experiments, refer to `tools/fewshot_exp/train_voc_series.sh`. In this script, only few-shot classes are limited to N-shot. This may lead to a drop in performance but more natural conditions.
 
-### Perform few-shot training on COCO dataset
-1. Run the following for base training
-```bash
-bash tools/fewshot_exp/train_coco_base.sh
-```
-This will generate the base model (`model_coco_base.pth`) and corresponding pre-trained model (`coco_base_pretrained.pth`).
-
-2. Run the following for few-shot fine-tuning
-```bash
-bash tools/fewshot_exp/train_coco_standard.sh
-```
-This will perform evaluation on 10/30 shot. 
-Result folder is `fs_exp/coco_standard_results` by default, and you can get a quick summary by:
-```bash
-python tools/fewshot_exp/cal_novel_coco.py fs_exp/coco_standard_results
-```
-
-**Notice:** Recently we find that [FSRW](https://github.com/bingykang/Fewshot_Detection) are not using the minival set for evaluation. So the training datasplits they provided contain few images in minival. Now we replace them while get almost the same evaluation results.
-
-## Citation
-```
-@inproceedings{wu2020mpsr,
-  author = {Wu, Jiaxi and Liu, Songtao and Huang, Di and Wang, Yunhong},
-  booktitle = {European Conference on Computer Vision},
-  title = {Multi-Scale Positive Sample Refinement for Few-Shot Object Detection},
-  year = {2020}
-}
-```
