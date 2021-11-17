@@ -12,10 +12,25 @@ Then, put VOC datasets into file folder "datasets".
 
 ```bash
 datasets/voc/VOC2007
-├── train_voc_base.sh
-├── train_voc_standard.sh
-├── train_coco_base.sh
-└── train_coco_standard.sh
+            ├── Annotations
+            ├── ImageSets
+            ├── JPEGImages
+            ├── Crops
+            ├── Crops_standard-1shot
+            ├── Crops_standard-2shot
+            ├── Crops_standard-3shot
+            ├── Crops_standard-5shot
+            ├── Crops_standard-10shot
+datasets/voc/VOC2007
+            ├── Annotations
+            ├── ImageSets
+            ├── JPEGImages
+            ├── Crops
+            ├── Crops_standard-1shot
+            ├── Crops_standard-2shot
+            ├── Crops_standard-3shot
+            ├── Crops_standard-5shot
+            ├── Crops_standard-10shot
 ```
 
 ### Prepare base and few-shot datasets
