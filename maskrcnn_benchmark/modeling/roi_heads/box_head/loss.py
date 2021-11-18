@@ -143,7 +143,7 @@ class FastRCNNLossComputation(object):
             labels_trans = labels_fg.unsqueeze(1)        # [m, 1]
             label_sup_trans = label_sup.unsqueeze(0)     # [1, C]
             label_mask = torch.eq(labels_trans, label_sup_trans).float().cuda()  # [m, c]
-            similarity = torch.div(torch.matmul(xc_cpe_normalized_fg, sup_normalized.t()), 0.2)  # [m, c]
+            similarity = torch.div(torch.matmul(xc_cpe_normalized_fg, sup_normalized.t()), 0.25)  # [m, c]
             sim_row_max, _ = torch.max(similarity, dim=1, keepdim=True)
             similarity = similarity - sim_row_max.detach()
             exp_sim = torch.exp(similarity)
@@ -163,7 +163,7 @@ class FastRCNNLossComputation(object):
             logits_mask_psal = logits_mask_psal - logits_mask_psal_diag_nxn  # qu chu dui jiao xian shang de yuan su
 
             # logits_mask_psal_diag = torch.eye(512).float().cuda()
-            similarity_psal = torch.div(torch.matmul(xc_cpe_normalized_fg, xc_cpe_normalized_fg.t()), 0.2)  # [512, 512]
+            similarity_psal = torch.div(torch.matmul(xc_cpe_normalized_fg, xc_cpe_normalized_fg.t()), 0.25)  # [512, 512]
             sim_row_max_psal, _ = torch.max(similarity_psal, dim=1, keepdim=True)
             similarity_psal = similarity_psal - sim_row_max_psal.detach()
             exp_sim_psal = torch.exp(similarity_psal)
