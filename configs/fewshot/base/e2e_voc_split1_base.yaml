@@ -37,6 +37,5 @@ TEST:
   IMS_PER_BATCH: 2
 oneStageOrtwo:
   oneStage: True
-split_shot:
-  split: 1.0
-  shot: 0.0
+CLASSSPILT:
+  spilt: 1
