@@ -8,7 +8,7 @@ do
   configfile=configs/fewshot/base/e2e_voc_split${split}_base.yaml
   python -m torch.distributed.launch --nproc_per_node=$NGPUS ./tools/train_net.py --config-file ${configfile}
   rm last_checkpoint
-  python caoGao_split${split}.py
+  python VOC_split${split}.py
   for shot in ${SHOT[*]}
   do
     configfile=configs/fewshot/standard/e2e_voc_split${split}_${shot}shot_finetune.yaml
