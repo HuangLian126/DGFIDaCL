@@ -2,10 +2,10 @@ import torch
 import torch.nn.functional as F
 import torch.nn as nn
 
-class DFGI(nn.Module):
+class DGFI(nn.Module):
 
     def __init__(self, indim, keydim, valdim, dense_sum=False):
-        super(DFGI, self).__init__()
+        super(DGFI, self).__init__()
 
         self.sum = dense_sum
 
