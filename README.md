@@ -7,6 +7,7 @@ Check INSTALL.md for installation instructions. Since maskrcnn-benchmark has bee
 ## Prepare Pascal VOC datasets
 First, you need to download the VOC datasets.
 Then, put "datasets" into this repositories. The "datasets" contains the few-shot data splits. The "datasets" is shown below:
+```bash
 datasets/voc/
             ├──VOC2007
                   ├── Annotations
@@ -28,6 +29,7 @@ datasets/voc/
                   ├── Crops_standard-3shot
                   ├── Crops_standard-5shot
                   ├── Crops_standard-10shot
+'''
 
 ## Training and Evaluation
 1. Run the following for base training and novel training on Pascal VOC splits-1.
