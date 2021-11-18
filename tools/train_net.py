@@ -29,47 +29,6 @@ from maskrcnn_benchmark.utils.imports import import_file
 from maskrcnn_benchmark.utils.logger import setup_logger
 from maskrcnn_benchmark.utils.miscellaneous import mkdir
 
-'''
-bash tools/fewshot_exp/train_coco_base.sh
-bash tools/fewshot_exp/train_coco_standard.sh
-bash tools/fewshot_exp/train_coco_standard_30shot.sh
-
-bash tools/fewshot_exp/train_coco_all.sh
-
-conda activate python37
-python setup.py install --cuda_ext --cpp_ext
-python setup.py build develop
-
-bash tools/fewshot_exp/demo_voc_standard_gradcam.sh
-
-
-bash tools/fewshot_exp/train_voc_base_margin.sh
-bash tools/fewshot_exp/train_voc_standard_margin.sh
-
-bash tools/fewshot_exp/train_voc_base_single.sh
-bash tools/fewshot_exp/train_voc_standard_single.sh
-
-bash tools/fewshot_exp/train_voc_all.sh
-bash tools/fewshot_exp/train_voc_all_2.sh
-bash tools/fewshot_exp/train_voc_all_3.sh
-
-bash tools/fewshot_exp/train_voc_base.sh
-bash tools/fewshot_exp/train_voc_standard.sh
-
-bash tools/fewshot_exp/train_voc_base_2.sh
-bash tools/fewshot_exp/train_voc_standard_2.sh
-
-bash tools/fewshot_exp/train_voc_base_3.sh
-bash tools/fewshot_exp/train_voc_standard_3.sh
-
-bash tools/fewshot_exp/train_voc_base_dcn.sh
-bash tools/fewshot_exp/train_voc_standard_dcn.sh
-
-bash tools/fewshot_exp/demo_voc_base.sh
-bash tools/fewshot_exp/demo_voc_standard.sh
-
-bash tools/fewshot_exp/demo_voc_standard_coco.sh
-'''
 
 # See if we can use apex.DistributedDataParallel instead of the torch default,and enable mixed-precision via apex.amp
 try:
@@ -111,19 +70,6 @@ def train(cfg, local_rank, distributed):
 
     save_to_disk = get_rank() == 0
 
-    '''
-    for name, param in model.named_parameters():
-            if name == 'roi_heads.box.predictor.cls_score.weight':
-                param.requires_grad = True
-            elif name == 'roi_heads.box.predictor.cls_score.bias':
-                param.requires_grad = True
-            elif name == 'roi_heads.box.predictor.bbox_pred.weight':
-                param.requires_grad = True
-            elif name == 'roi_heads.box.predictor.bbox_pred.bias':
-                param.requires_grad = True
-            else:
-                param.requires_grad = False
-    '''
 
     checkpointer = DetectronCheckpointer(cfg, model, optimizer, scheduler, output_dir, save_to_disk)
     extra_checkpoint_data = checkpointer.load(cfg.MODEL.WEIGHT)
