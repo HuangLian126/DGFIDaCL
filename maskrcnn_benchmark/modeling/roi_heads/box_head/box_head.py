@@ -50,7 +50,7 @@ class ROIBoxHead(torch.nn.Module):
             loss_classifier, loss_box_reg = self.loss_evaluator([class_logits], [box_regression], xc_cpe_normalized, xc_sup_cpe_normalized, supTarget)
             return (xc, proposals, dict(loss_classifier=loss_classifier, loss_box_reg=loss_box_reg))
         else:
-            loss_classifier, loss_box_reg, loss_pc = self.loss_evaluator([class_logits], [box_regression], xc_cpe_normalized, xc_sup_cpe_normalized, supTarget)
+            loss_classifier, loss_box_reg, loss_dacl = self.loss_evaluator([class_logits], [box_regression], xc_cpe_normalized, xc_sup_cpe_normalized, supTarget)
             return (xc, proposals, dict(loss_classifier=loss_classifier, loss_box_reg=loss_box_reg, loss_dacl=loss_dacl))
 
 def build_roi_box_head(cfg, in_channels):
