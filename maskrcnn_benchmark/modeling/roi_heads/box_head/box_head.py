@@ -42,29 +42,6 @@ class ROIBoxHead(torch.nn.Module):
         class_logits, box_regression = self.predictor(xc, xr) # class_logits.shape:  torch.Size([512, 16]); box_regression.shape:  torch.Size([512, 64])
 
 
-        '''
-        class_probxdx = F.softmax(class_logits, -1)  # [1000, 21]
-        Nums = class_probxdx.size(0)
-        index_proposal = []
-        index_max_row  = []
-        index_max      = []
-        for xx in range(Nums):
-            each_class_prob = class_probxdx[xx]  # [21]
-            ff = torch.argmax(each_class_prob)
-            ff2 = torch.max(each_class_prob)
-            if ff > 0:
-                index_proposal.append(xx)
-                index_max_row.append(ff)  # mei yi hang de zui da zhi de index
-                index_max.append(ff2)     # mei yi hang de zui da zhi
-        if index_max == []:
-            final_logit = class_logits[0]  # [21]
-        else:
-            ff3 = max(index_max)
-            final_index_proposal = index_proposal[index_max.index(ff3)]
-            final_logit = class_logits[final_index_proposal]  # [21]
-        '''
-
-
         if not self.training:
             result = self.post_processor((class_logits, box_regression), proposals)
             return xc, result, {}
@@ -74,7 +51,7 @@ class ROIBoxHead(torch.nn.Module):
             return (xc, proposals, dict(loss_classifier=loss_classifier, loss_box_reg=loss_box_reg))
         else:
             loss_classifier, loss_box_reg, loss_pc = self.loss_evaluator([class_logits], [box_regression], xc_cpe_normalized, xc_sup_cpe_normalized, supTarget)
-            return (xc, proposals, dict(loss_classifier=loss_classifier, loss_box_reg=loss_box_reg, loss_pc=loss_pc))
+            return (xc, proposals, dict(loss_classifier=loss_classifier, loss_box_reg=loss_box_reg, loss_dacl=loss_dacl))
 
 def build_roi_box_head(cfg, in_channels):
     """
