@@ -30,7 +30,7 @@ def reduce_loss_dict(loss_dict):
         reduced_losses = {k: v for k, v in zip(loss_names, all_losses)}
     return reduced_losses
 
-def do_train(model, data_loader, optimizer, scheduler, checkpointer, device, checkpoint_period, arguments, data_loader_closeup, oneStage, gamma, margin, shot):
+def do_train(model, data_loader, optimizer, scheduler, checkpointer, device, checkpoint_period, arguments, data_loader_closeup, oneStage, split, shot):
     logger = logging.getLogger("maskrcnn_benchmark.trainer")
     logger.info("Start training")
     meters = MetricLogger(delimiter="  ")
@@ -92,10 +92,10 @@ def do_train(model, data_loader, optimizer, scheduler, checkpointer, device, che
         if iteration == max_iter:
             if oneStage:  # gamma = spilt; margin = shot
                 # checkpointer.save("model_final" + str(gamma) + ";" + str(margin), **arguments)
-                checkpointer.save("model_final_base_split" + str(int(gamma)), **arguments)
+                checkpointer.save("model_final_base_split" + str(int(split)), **arguments)
             else:
                 # checkpointer.save("model_final_standard" + str(gamma) + ";" + str(margin), **arguments)
-                checkpointer.save("model_final_standard_split" + str(int(gamma)) + "_" + str(int(margin)) + "shot", **arguments)
+                checkpointer.save("model_final_standard_split" + str(int(split)) + "_" + str(int(shot)) + "shot", **arguments)
 
     total_training_time = time.time() - start_training_time
     total_time_str = str(datetime.timedelta(seconds=total_training_time))
