@@ -11,14 +11,7 @@ from ..backbone import build_backbone
 from ..rpn.rpn import build_rpn
 from ..roi_heads.roi_heads import build_roi_heads
 
-# from DaFI import DAFI
-# from DaFIv2 import DAFIV2
-# from DaFIv3 import DAFIV3
-from DGFI import DAFIV4
-
-# from DaFIv6 import DAFIV6
-# from DRD import DenseRelationDistill
-# from arrm import ARRM
+from DGFI import DGFI
 
 class GeneralizedRCNN(nn.Module):
 
@@ -37,10 +30,7 @@ class GeneralizedRCNN(nn.Module):
         self.rpn = build_rpn(cfg, self.backbone.out_channels)
         self.roi_heads = build_roi_heads(cfg, self.backbone.out_channels)
 
-        # self.DAFIV6_opt = DAFIV6(256, 256, 256, dense_sum=True)
-        self.DAFIV4_opt = DAFIV4(256, 32, 128, dense_sum=True)
-
-        # self.conv_before = nn.Conv2d(256, 256, kernel_size=1, padding=0, stride=1)
+        self.dgfi = DGFI(256, 32, 128, dense_sum=True)
 
     def forward(self, images, targets=None, sup=None, supTarget=None, oneStage=None, gamma=None, margin=None):
         """
@@ -67,14 +57,8 @@ class GeneralizedRCNN(nn.Module):
         images = to_image_list(images)
         features = self.backbone(images.tensors)
 
-        '''
-        before_features = []
-        for i in range(len(features)):
-            before_features.append(self.conv_before(features[i]))
-        before_features = tuple(before_features)
-        '''
 
-        features = self.DAFIV4_opt(features, sup_feats)
+        features = self.dgfi(features, sup_feats)
 
         proposals, proposal_losses = self.rpn(images, features, targets)
 
