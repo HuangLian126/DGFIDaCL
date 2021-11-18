@@ -1,8 +1,5 @@
 MODEL:
   META_ARCHITECTURE: "GeneralizedRCNN"
-  # WEIGHT: "/home/hl/hl/ourMetaWithoutFPN/model_final_standard_split1_10shot.pth"
-  # WEIGHT: "/home/hl/hl/ourMetaWithoutFPN/model_final_standard_split1_10shot_without.pth"
-  # WEIGHT: "/home/hl/hl/ourMetaWithoutFPN/model_final_standard_split1_3shot_zzz.pth"
   WEIGHT: "/home/hl/hl/ourMetaWithoutFPN/voc0712_split_1_base_pretrained.pth"
   BACKBONE:
     CONV_BODY: "R-101-FPN"
@@ -22,12 +19,8 @@ MODEL:
     NUM_CLASSES: 21
     POOLER_SCALES: (0.25, 0.125, 0.0625, 0.03125)
     POOLER_SAMPLING_RATIO: 2
-    # FEATURE_EXTRACTOR: "FPN2MLPFeatureExtractor"
-    # FEATURE_EXTRACTOR: "FPN2MLPFeatureExtractorPCLoss"
     FEATURE_EXTRACTOR: "FPN2MLPFeatureExtractorPC_PSLoss"
-    # FEATURE_EXTRACTOR: "FPN2MLPFeatureExtractorPSLoss"
     PREDICTOR: "FPNPredictor"
-    # PREDICTOR: "FPNCosinePredictor"
 DATASETS:
   TRAIN: ("voc_2007_trainval_10shot_standard", "voc_2012_trainval_10shot_standard")
   CLOSEUP: ("voc_2007_trainval_10shot_closeup_standard", "voc_2012_trainval_10shot_closeup_standard")
@@ -41,11 +34,10 @@ SOLVER:
   MAX_ITER: 4000
   IMS_PER_BATCH: 2
 TEST:
-  IMS_PER_BATCH: 1
+  IMS_PER_BATCH: 2
 oneStageOrtwo:
   oneStage: False
-marginLoss:
-  gamma: 1.0
-  margin: 10.0
+SHOT:
+  shot: 10
 CLASSSPILT:
   spilt: 1
