@@ -1,8 +1,6 @@
 # Copyright (c) Facebook, Inc. and its affiliates. All Rights Reserved.
 from maskrcnn_benchmark.modeling import registry
 
-from aug import ISDAaug
-from augReg import ISDAaugReg
 import torch
 from torch import nn
 from torch.nn import functional as F
