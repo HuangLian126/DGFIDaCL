@@ -1,6 +1,6 @@
 MODEL:
   META_ARCHITECTURE: "GeneralizedRCNN"
-  WEIGHT: "/home/hl/hl/ourMetaWithoutFPN/voc0712_split_1_base_pretrained.pth"
+  WEIGHT: "voc0712_split_1_base_pretrained.pth"
   BACKBONE:
     CONV_BODY: "R-101-FPN"
   RESNETS:
