@@ -55,7 +55,7 @@ def do_train(model, data_loader, optimizer, scheduler, checkpointer, device, che
         sup_target = sup_target.to(device)
 
         targets = [target.to(device) for target in targets]
-        loss_dict = model(images, targets, sup, sup_target, oneStage, gamma, margin)
+        loss_dict = model(images, targets, sup, sup_target, oneStage)
         losses = sum(loss for loss in loss_dict.values())
 
         # reduce losses over all GPUs for logging purposes
