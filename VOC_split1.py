@@ -14,7 +14,7 @@ def setup_seed(seed):
 
 setup_seed(1)
 
-checkpoint = torch.load('/home/hl/hl/ourMetaWithoutFPN/model_final_base_split1.pth', map_location=torch.device("cpu"))
+checkpoint = torch.load('model_final_base_split1.pth', map_location=torch.device("cpu"))
 model = checkpoint['model']
 
 change = [('roi_heads.box.predictor.cls_score.weight', (21, 1024)), ('roi_heads.box.predictor.cls_score.bias', 21)]
