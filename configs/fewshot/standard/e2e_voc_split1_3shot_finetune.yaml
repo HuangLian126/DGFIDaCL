@@ -19,7 +19,7 @@ MODEL:
     NUM_CLASSES: 21
     POOLER_SCALES: (0.25, 0.125, 0.0625, 0.03125)
     POOLER_SAMPLING_RATIO: 2
-    FEATURE_EXTRACTOR: "FPN2MLPFeatureExtractorPC_PSLoss"
+    FEATURE_EXTRACTOR: "FPN2MLPFeatureExtractor_DaCL"
     PREDICTOR: "FPNPredictor"
 DATASETS:
   TRAIN: ("voc_2007_trainval_3shot_standard", "voc_2012_trainval_3shot_standard")
