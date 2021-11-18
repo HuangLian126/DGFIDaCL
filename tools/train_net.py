@@ -80,11 +80,10 @@ def train(cfg, local_rank, distributed):
 
     checkpoint_period = cfg.SOLVER.CHECKPOINT_PERIOD
     oneStage          = cfg.oneStageOrtwo.oneStage
-    margin            = cfg.marginLoss.margin
-    gamma             = cfg.marginLoss.gamma
-    shot              = cfg.CLASSSPILT.spilt
+    shot              = cfg.SHOT.shot
+    split             = cfg.CLASSSPILT.spilt
 
-    do_train(model, data_loader, optimizer, scheduler, checkpointer, device, checkpoint_period, arguments, data_loader_closeup, oneStage, gamma, margin, shot)
+    do_train(model, data_loader, optimizer, scheduler, checkpointer, device, checkpoint_period, arguments, data_loader_closeup, oneStage, split, shot)
     return model
 
 def run_test(cfg, model, distributed):
