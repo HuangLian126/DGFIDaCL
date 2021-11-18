@@ -450,9 +450,8 @@ _C.TEST.BBOX_AUG.SCALE_H_FLIP = False
 _C.oneStageOrtwo = CN()
 _C.oneStageOrtwo.oneStage = True
 
-_C.marginLoss = CN()
-_C.marginLoss.gamma = 1.0
-_C.marginLoss.margin = 0.0
+_C.SHOT = CN()
+_C.SHOT.shot = 1
 
 _C.CLASSSPILT = CN()
 _C.CLASSSPILT.spilt = 1
