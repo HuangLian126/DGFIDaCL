@@ -32,7 +32,7 @@ class GeneralizedRCNN(nn.Module):
 
         self.dgfi = DGFI(256, 32, 128, dense_sum=True)
 
-    def forward(self, images, targets=None, sup=None, supTarget=None, oneStage=None, gamma=None, margin=None):
+    def forward(self, images, targets=None, sup=None, supTarget=None, oneStage=None):
         """
         Arguments:
             images (list[Tensor] or ImageList): images to be processed
