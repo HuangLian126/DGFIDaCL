@@ -5,8 +5,8 @@ Our code is based on  [https://github.com/facebookresearch/maskrcnn-benchmark](h
 Check INSTALL.md for installation instructions. Since maskrcnn-benchmark has been deprecated, please follow these instructions carefully (e.g. version of Python packages).
 
 ## Prepare Pascal VOC datasets
-First, you need to download the VOC datasets.
-Then, put "datasets" into this repositories. The "datasets" contains the few-shot data splits. The "datasets" is shown below:
+First, you need to download the VOC datasets [dawnload](https://drive.google.com/file/d/14muqZUdbpnYQ_30ZpAP9KqrVVHSkJOhU/view?usp=sharing).
+Then, put "datasets" into this repository. The "datasets" contains the few-shot data splits. The "datasets" is shown below:
 
 ```bash
 datasets/voc/
