@@ -6,7 +6,7 @@ Check INSTALL.md for installation instructions. Since maskrcnn-benchmark has bee
 
 ## Prepare Pascal VOC datasets
 First, you need to download the VOC datasets [here](https://drive.google.com/file/d/14muqZUdbpnYQ_30ZpAP9KqrVVHSkJOhU/view?usp=sharing).
-Then, put "datasets" into this repository. The "datasets" contains the few-shot data splits. The "datasets" is shown below:
+Then, put "datasets" into this repository. The "datasets" contains the original VOC2007/2012 datasets and correspondiing class split. The "datasets" is shown below:
 
 ```bash
 datasets/voc/
