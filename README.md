@@ -1,6 +1,7 @@
+# DGFIDaCL
 
-[![LICENSE](https://img.shields.io/badge/license-MIT-green)](https://github.com/CSer-Tang-hao/FS-KTN/blob/master/LICENSE)
-[![Python](https://img.shields.io/badge/python-3.6-blue.svg)](https://www.python.org/)
+[![LICENSE](https://img.shields.io/badge/license-MIT-green)]
+[![Python](https://img.shields.io/badge/python-3.6-blue.svg)]
 ![PyTorch](https://img.shields.io/badge/pytorch-1.2.0-%237732a8)
 
 Our code is based on  [https://github.com/facebookresearch/maskrcnn-benchmark](https://github.com/facebookresearch/maskrcnn-benchmark) and developed with Python 3.7 & PyTorch 1.1.0.
