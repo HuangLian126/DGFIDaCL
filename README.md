@@ -4,7 +4,8 @@
 ![Python](https://img.shields.io/badge/python-3.7-blue.svg)
 ![PyTorch](https://img.shields.io/badge/pytorch-1.1.0-%237732a8)
 
-Our code is based on  [https://github.com/facebookresearch/maskrcnn-benchmark](https://github.com/facebookresearch/maskrcnn-benchmark) and developed with Python 3.7 & PyTorch 1.1.0.
+Our paper "Few-Shot Object Detection with Dense-Global Feature Interaction and Dual-Contrastive Learning" has been accepted by the Applied Intelligence. 
+The source code is based on  [https://github.com/facebookresearch/maskrcnn-benchmark](https://github.com/facebookresearch/maskrcnn-benchmark) and developed with Python 3.7 & PyTorch 1.1.0.
 
 ## Installation
 Check INSTALL.md for installation instructions. Since maskrcnn-benchmark has been deprecated, please follow these instructions carefully (e.g. version of Python packages).
