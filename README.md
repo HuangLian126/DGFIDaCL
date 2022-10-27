@@ -45,3 +45,13 @@ bash tools/fewshot_exp/train_voc_all.sh
 ```
 
 2. Modify them if needed. If you have any question about these parameters (e.g. batchsize), please refer to [maskrcnn-benchmark](https://github.com/facebookresearch/maskrcnn-benchmark) for quick solutions.
+
+## Citation
+
+@ARTICLE{huang2022,
+  author={Lian Huang, Shaosheng Dai and Ziqiang He},
+  journal={Applied Intelligence}, 
+  title={Few-shot object detection with dense-global feature interaction and dual-contrastive learning}, 
+  year={2022},
+  doi={10.1007/s10489-022-04243-3}
+}
